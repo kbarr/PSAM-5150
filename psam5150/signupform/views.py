@@ -42,7 +42,7 @@ def sitesignup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.INFO, "Your form has been submitted and will be processed in the order it was received")
+            messages.add_message(request, messages.INFO, "Your form has been submitted and may be processed in the order it was received")
             return redirect('signup_main')
     else:
         form = SignupForm()

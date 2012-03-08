@@ -10,26 +10,34 @@ class HelloWorld(models.Model):
     def __unicode__(self):
         return self.name
 
-
-class Signup(models.Model):
-    created_on = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    reason_for_joining = models.TextField()
-    url = models.URLField(verify_exists=True)
-    is_accepted = models.BooleanField(default=False)
-    admin_comments = models.TextField(blank=True, null=True)
-
-
-    def __unicode__(self):
-        return self.name
-
 class Country(models.Model):
     name = models.CharField(max_length=100)
     population = models.BigIntegerField()
 
     def __unicode__(self):
         return self.name
+
+
+class Signup(models.Model):
+	created_on = models.DateTimeField(auto_now_add=True)
+	name = models.CharField(max_length=100)
+	address = models.CharField(max_length=100)
+	city = models.CharField(max_length=20)
+	state = models.CharField(max_length=2)
+	zipcode = models.CharField(max_length=10)
+	phone_number = models.CharField(max_length=100)
+	email = models.EmailField(max_length=50)
+	subject = models.CharField(max_length=50)
+	inquiry = models.TextField()
+	#reason_for_joining = models.TextField()
+	#url = models.URLField(verify_exists=True)
+	is_accepted = models.BooleanField(default=False)
+	admin_comments = models.TextField(blank=True, null=True)
+
+	def __unicode__(self):
+		return self.name
+
+
 
 class City(models.Model):
     country = models.ForeignKey('country', related_name='cities')

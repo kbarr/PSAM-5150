@@ -9,10 +9,10 @@ class HelloWorldAdmin(admin.ModelAdmin):
 
 class SignupAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_on'
-    list_display = ('email', 'created_on', 'is_accepted', 'url',)
+    list_display = ('name', 'address', 'city', 'state', 'zipcode', 'phone_number', 'email', 'subject','inquiry',)
     list_filter = ('is_accepted',)
     list_display_links = ('email',)
-    search_fields = ['email', 'name', 'admin_comments', 'url','reason_for_joining', ]
+    search_fields = ['name', 'address','city', 'state', 'zipcode', 'phone_number', 'email', 'subject','inquiry',]
 
 admin.site.register(HelloWorld, HelloWorldAdmin)
 admin.site.register(Signup, SignupAdmin)

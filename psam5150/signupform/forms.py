@@ -12,4 +12,6 @@ class SignupForm(forms.ModelForm):
 
     class Meta:
         model = Signup
-        fields = ['name', 'email', 'reason_for_joining', 'url']
+        fields = ['name','address','city','state', 'zipcode', 'phone_number', 'email', 'subject','inquiry',]
+
+
